@@ -1,0 +1,99 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/lion.jpg'%}">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/front.css' %}">
+    <title>lion Pictures | Main Page</title>
+</head>
+<body>
+    
+
+    <section class="main swiper mySwiper">
+        <div class="wrapper swiper-wrapper">
+          <div class="slide swiper-slide">
+            <img src="{% static 'img/header-bg.jpg' %}" alt="" class="image" />
+            <div class="image-data">
+              
+              <h1>
+                Our Top Service
+              </h1>
+              <a href="{% url 'Gallery' %}" class="button">Book Now</a>
+            </div>
+          </div>
+          <div class="slide swiper-slide">
+            <img src="{% static 'img/header-bg.jpg' %}" alt="" class="image" />
+            <div class="image-data">
+              
+              <h1>
+                Shout Festivals Pictures
+              </h1>
+              <a href="{% url 'Gallery' %}" class="button">Book Now</a>
+            </div>
+          </div>
+          <div class="slide swiper-slide">
+            <img src="{% static 'img/header-bg.jpg' %}" alt="" class="image" />
+            <div class="image-data">
+              
+              <h1>
+                Shout babyshawor Pictures
+              </h1>
+              <a href="{% url 'Gallery' %}" class="button">Book Now</a>
+            </div>
+          </div>
+
+        
+
+
+          <div class="slide swiper-slide">
+            <img src="{% static 'img/header-bg.jpg' %}" alt="" class="image" />
+            <div class="image-data">
+              
+              <h1>
+                Shout Weeding Pictures
+              </h1>
+              <a href="{% url 'Gallery' %}" class="button">Book Now</a>
+            </div>
+          </div>
+
+          <div class="slide swiper-slide">
+            <img src="{% static 'img/header-bg.jpg' %}" alt="" class="image" />
+            <div class="image-data">
+              
+              <h1>
+                Shout birthday Pictures
+              </h1>
+              <a href="{% url 'Gallery' %}" class="button">Book Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <script src="{% static 'js/swiper-bundle.min.js'%}"></script>
+    
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 1,
+          spaceBetween: 30,
+          loop: true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
+    
+</body>
+</html>

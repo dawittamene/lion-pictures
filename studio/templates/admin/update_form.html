@@ -1,0 +1,55 @@
+{% extends 'studio/main.html' %}
+
+{% load static %}
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="x-icon" href="{% static 'img/lion.jpg' %}">
+        <title>Our Portfolio</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        
+       
+
+        
+    </head>
+
+    <body>
+        
+        <!-- Header Section Start -->
+        <div class="menu"> <span></span> </div>
+       
+        <div class="overlay"></div>
+        <div class="header banner">
+            
+            <div class="container text-center">
+            
+                    
+                    <div class="col-md-12">
+                        <h1><a class="brand" href="#">Lion Pictures</a></h1>
+                        <!-- <a class="brand" href="index.html"><img alt="Logo" src="img/logo.jpg"></a> -->
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{postform}}
+
+            <input type="submit" value="Submit" name="send">
+        </form>
+
+        
+    
+    {% endblock content %}
+</body>
+</html>

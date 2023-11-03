@@ -1,0 +1,140 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/lion.jpg' %}">
+    <title>Post Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/slick/slick-theme.css' %}" rel="stylesheet">
+
+
+    <!-- Main Stylesheet File -->
+    <link href="{% static "css/hover-style.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+    <!-- Favicons -->
+</head>
+
+<body>
+
+<!-- Header Section Start -->
+<div class="menu"> <span></span> </div>
+
+
+<nav id="nav">
+    <p style="color: white;">Hello, {{request.user}}</p>
+    <ul class="main">
+
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'loginpage' %}">login</a></li>
+        {% endif %}
+
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'Gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'findpage' %}">Find</a></li>
+        <li><a href="{% url 'booking' %}">Booking</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+
+        {% if request.user.is_staff %}
+            <li><a href="{% url 'post_user_photo' %}">post user photo</a></li>
+            <li><a href="{% url 'messagess' %}">check messages</a></li>
+            <li><a href="{% url 'contact_booking' %}">check booking</a></li>
+            <li><a href="{% url 'gallary_post' %}">gallery post</a></li>
+        {% endif %}
+        {% if request.user.not_staff %}
+            <li><a href="{% url 'about' %}">About</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+<div class="overlay"></div>
+
+<div class="header banner">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><a class="brand" href="#">Lion Pictures</a></h1>
+                <!-- <a class="brand" href="index.html"><img alt="Logo" src="img/logo.jpg"></a> -->
+            </div>
+        </div>
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>
+<!-- Header Section End -->
+
+
+<!-- Booking Section Start -->
+<div id="booking" style="padding-top: 45px;">
+    <div class="container">
+        <div class="section-header">
+            <h2>Post The Pictures Here</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="booking-form">
+                    <div id="success">
+                        {% if success_message %}
+                            <p class="text-success">{{ success_message }}</p>
+                        {% endif %}
+                        {% if error_message %}
+                            <p class="text-danger">{{ error_message }}</p>
+                        {% endif %}
+                    </div>
+                    <form name="sentMessage" id="bookingForm" action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="control-group col-md-6">
+                                <label for="user_id">Enter The User Id</label>
+                                <input type="text" class="form-control" id="user_id" placeholder="E.g. qw123eerax" name="user_id" required>
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                            <div class="control-group col-md-6" style="margin: 15px;">
+                                <label for="imagess">Enter The Pictures:</label>
+                                <input type="file" id="imagess" name="imagess" required>
+                            </div>
+                        </div>
+
+                        <div class="button">
+                            <button type="submit" id="bookingButton">Post Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Booking Section End -->
+
+
+<!-- Vendor JavaScript File -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/jquery/jquery-migrate.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+<script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+
+<!-- Contact JavaScript File -->
+<script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+
+<!-- Main JavaScript File -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/lion.jpg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lion Pictures</title>
+
+    
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/slick/slick-theme.css' %}" rel="stylesheet">
+    
+
+        <!-- Main Stylesheet File -->
+        <link href="{% static "css/hover-style.css" %}" rel="stylesheet">
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+        
+        
+</head>
+<body>
+
+
+    
+    
+
+     <!-- Footer Section Start -->
+   
+    <!-- Footer Section End -->
+
+
+    {% block content %}
+
+
+     {% endblock content %}
+
+     <nav id="nav">
+        <p style="color: white;">Hello, {{request.user}}</p>
+        <ul class="main">
+            
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'logoutPage' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'loginpage' %}">login</a></li>
+            {% endif %}
+           
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'Gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'findpage' %}">Find</a></li>
+            <li><a href="{% url 'booking' %}">Booking</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+            
+            {% if request.user.is_staff %}
+            <li><a href="{% url 'post_user_photo' %}">post user photo</a></li>
+            <li><a href="{% url 'messagess' %}">check messages</a></li>
+            <li><a href="{% url 'contact_booking' %}">check booking</a></li>
+
+            {% endif %}
+            
+            <li><a href="{% url 'about' %}">About</a></li>
+           
+        </ul>
+    </nav>
+     
+
+     <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="social">
+                        <a href=""><li class="fa fa-instagram"></li> </a>
+                        <a href=""><li class="fa fa-telegram "></li></a>
+                        <a href=""><li class="fa fa-linkedin"></li></a>
+                        <a href=""><li class="fa fa-twitter"></li></a>
+                        <a href=""><li class="fa fa-facebook-f"></li></a>
+                        
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p>Copyright &#169; <a href="#">Lion Pictures</a> All Rights Reserved.</p>
+                    
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    <p><a href="https://www.linkedin.com/in/dawit-tamene-531194273/">Designed By Zumbara Web Designing</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery/jquery-migrate.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+        <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'js/contact.js' %}"></script>
+        
+        <!-- Main Javascript File -->
+        <script src="{% static 'js/main.js' %}"></script>
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="x-icon" href="{% static 'img/lion.jpg' %}">
+        <title>Post Page</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet">
+        <link href="{% static 'vendor/slick/slick-theme.css' %}" rel="stylesheet">
+    
+
+        <!-- Main Stylesheet File -->
+        <link href="{% static "css/hover-style.css" %}" rel="stylesheet">
+        <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <link href="{% static "css/find.css" %}" rel="stylesheet">
+        
+
+        <!-- Favicons -->
+        
+
+
+   
+    </head>
+
+    <body>
+        
+      
+         
+       
+        
+
+
+
+        <div class="row">
+            
+            {%for image in images %}
+            <div class="col-lg-4">
+                
+                <img class="thumbnail" src="{{ image.image.url }}">
+                
+                <div class="box-element product">
+                    <center><h6><strong>Thanks For Choosing</strong></h6></center>
+                    <hr>
+    
+                    <center><button type="submit"  class="btn btn-outline-secondary add-btn">Download</button></center>
+                    
+                    
+    
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <!-- Header Section End -->
+
+
+
+        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery/jquery-migrate.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+        <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="{% static 'js/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'js/contact.js' %}"></script>
+        
+        <!-- Main Javascript File -->
+        <script src="{% static 'js/main.js' %}"></script>
+      
+
+    
+    </body>
+</html>

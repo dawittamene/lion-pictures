@@ -24,7 +24,7 @@ def booking(request):
         if Booking.objects.filter(Booking_Date=bookingdate).exists():
            return render(request,'studio/booking.html',{'booking_error':'A booking with the given date already exists.'})
         else:   
-            new_booking = Booking(First_Name=first_name, Last_Name=last_name, Mobile=mobile_number, Email=email, Booking_Date=bookingdate, Time=bookingtime)
+            new_booking = Booking(First_Name=first_name, Last_Name=last_name, Mobile=mobile_number, Email=email, Booking_for=bookingdate, Time_for=bookingtime)
             new_booking.save()
             return redirect('Gallery')
     return render(request, 'studio/booking.html')
